@@ -9,7 +9,7 @@ public class Homework3 {
     public static void main(String[] args) throws InterruptedException {
        /*Go to wikipedia.org (Links to an external site.)
         enter search term `selenium webdriver`
-        // ziya günay
+        // ziya günay hello
         click on search button
         click on search result `Selenium (software)`
         verify url ends with `Selenium_(software)'*/
