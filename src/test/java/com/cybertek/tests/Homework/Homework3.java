@@ -13,7 +13,7 @@ public class Homework3 {
         click on search button
         click on search result `Selenium (software)`
         verify url ends with `Selenium_(software)'*/
-
+        // sove questions
 
         WebDriver driver= WebDriverFactory.getDriver("edge");
         driver.get("https://www.wikipedia.org/");
