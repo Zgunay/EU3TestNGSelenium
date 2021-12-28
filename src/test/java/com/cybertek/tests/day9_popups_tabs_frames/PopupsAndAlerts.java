@@ -50,6 +50,7 @@ public class PopupsAndAlerts {
         //click for JS confirm
         driver.findElement(By.xpath("//button[2]")).click();
         Thread.sleep(2000);
+        driver.switchTo().alert();
         alert.dismiss();
 
         //click for JS Prompt
