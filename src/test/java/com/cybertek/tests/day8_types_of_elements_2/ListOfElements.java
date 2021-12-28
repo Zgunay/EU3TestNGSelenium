@@ -12,48 +12,58 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class ListOfElements {
-  WebDriver driver;
-   @BeforeMethod
-   public void setup(){
+    WebDriver driver;
 
-       driver= WebDriverFactory.getDriver("edge");
+    @BeforeMethod
+    public void setUp(){
+        driver = WebDriverFactory.getDriver("chrome");
+    }
 
-   }
-   @AfterMethod
-   public void tearDown() throws InterruptedException {
-       Thread.sleep(2000);
-       driver.quit();
-   }
-
-
+    @AfterMethod
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.quit();
+    }
 
     @Test
     public void test1(){
-    driver.get("http://practice.cybertekschool.com/multiple_buttons");
+        driver.get("http://practice.cybertekschool.com/multiple_buttons");
 
+        //save our web elements inside the list
         List<WebElement> buttons = driver.findElements(By.tagName("button"));
 
         System.out.println("buttons.size() = " + buttons.size());
-        Assert.assertEquals(6,6,"verify buttons size");
-// iter + enter  to get each loop with shortcut
+        //verify button size
+        Assert.assertEquals(buttons.size(),6,"verify buttons size");
+
+        //iter + enter to get each loop with shortcut
         for (WebElement button : buttons) {
-            System.out.println("button.getText() = " + button.getText());
             System.out.println("button.isDisplayed() = " + button.isDisplayed());
             Assert.assertTrue(button.isDisplayed(),"verify buttons are displayed");
         }
 
-        // click second button
-
+        //click second button
         buttons.get(1).click();
 
-        }
-
-
+    }
 
     @Test
     public void test2(){
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
-        List<WebElement> buttons = driver.findElements(By.tagName("button"));
+
+        //regular findElement method will throw NSE if locator does not exist
+        //driver.findElement(By.tagName("buttonaiysdgausda"));
+
+        //passing locator which does not exist, it will not throw NoSuchElement
+        //ALT+enter or OPTION+Enter then one more enter for the shortcut
+        List<WebElement> buttons = driver.findElements(By.tagName("buttonaiysdgausda"));
+
+        System.out.println("buttons.size() = " + buttons.size());
+
 
     }
+
+
+
+
 }
