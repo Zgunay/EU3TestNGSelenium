@@ -13,12 +13,14 @@ import java.util.List;
 
 public class EU2Homework_9To12 {
   WebDriver driver;
+    List<WebElement> StatusCodes;
     @BeforeMethod
     public void start(){
         driver= WebDriverFactory.getDriver("edge");
         driver.get("https://practice-cybertekschool.herokuapp.com/");
         driver.manage().window().maximize();
         driver.findElement(By.linkText("Status Codes")).click();
+        StatusCodes = driver.findElements(By.xpath("//a[contains(@href,'status_')]"));
 
 
     }
@@ -26,33 +28,48 @@ public class EU2Homework_9To12 {
     @AfterMethod
     public void end(){
 
-       // driver.quit();
+       driver.quit();
     }
 
     @Test
-    public void Test() throws InterruptedException {
-        List<WebElement> StatusCodes = driver.findElements(By.xpath("//a[contains(@href,'status_')]"));
-        System.out.println("StatusCodes.size() = " + StatusCodes.size());
+    public void Test1() throws InterruptedException {
 
-            StatusCodes.get(0).click();
-            String actualText = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p/text()[1]")).getText();
-            System.out.println("actualText.trim() = " + actualText.trim());
-            String expectedText = "This page returned a 200 status code.";
-            System.out.println("expectedText.trim() = " + expectedText.trim());
+           System.out.println("StatusCodes.size() = " + StatusCodes.size());
+           StatusCodes.get(0).click();
+            String actualText = driver.findElement(By.xpath("//*[contains(text(),'This page returned')]")).getText();
+            System.out.println("actualText = " + actualText);
+            Assert.assertTrue(actualText.contains("This page returned a 200 status code"));
 
 
-       Assert.assertTrue(actualText.equals(expectedText));
-       Assert.assertEquals(actualText,expectedText,"This NOT same");
 
-       /* driver.navigate().back();
-        Thread.sleep(2000);
 
+
+    }
+
+    @Test
+    public void Test2(){
         StatusCodes.get(1).click();
-        String actual301= driver.findElement(By.xpath("//p[contains(text(),'This page returned')]")).getText();
-        System.out.println("actual301 = " + actual301);
-        actual301=actual301.trim();
-        String expected301="This page returned a 301 status code.";
-        Assert.assertEquals(actual301,expected301); */
+        String actualText1 = driver.findElement(By.xpath("//*[contains(text(),'This page returned')]")).getText();
+        System.out.println("actualText = " + actualText1);
+        Assert.assertTrue(actualText1.contains("This page returned a 301 status code"));
+
+    }
+
+    @Test
+    public void Test3(){
+        StatusCodes.get(2).click();
+        String actualText = driver.findElement(By.xpath("//*[contains(text(),'This page returned')]")).getText();
+        System.out.println("actualText = " + actualText);
+        Assert.assertTrue(actualText.contains("This page returned a 404 status code"));
+
+    }
+    @Test
+    public void Test4(){
+        StatusCodes.get(3).click();
+        String actualText = driver.findElement(By.xpath("//*[contains(text(),'This page returned')]")).getText();
+        System.out.println("actualText = " + actualText);
+        Assert.assertTrue(actualText.contains("This page returned a 500 status code"));
+
     }
 }
 
