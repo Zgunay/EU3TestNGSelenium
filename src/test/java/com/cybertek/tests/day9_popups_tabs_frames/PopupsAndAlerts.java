@@ -43,9 +43,9 @@ public class PopupsAndAlerts {
          driver.findElement(By.xpath("//button[1]")).click();
 
         //switch to JS alert pop up
-        Alert alert = driver.switchTo().alert();
+       Alert alert = driver.switchTo().alert();
         Thread.sleep(2000);
-        alert.accept();
+       driver.switchTo().alert().accept();
 
         //click for JS confirm
         driver.findElement(By.xpath("//button[2]")).click();
