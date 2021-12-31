@@ -67,6 +67,8 @@ public class MultipleWindows {
             //one by one change it
             driver.switchTo().window(handle);
 
+            System.out.println("driver.getTitle() = " + driver.getTitle());
+
             //whenever your title equals to your expected window title
             if(driver.getTitle().equals("New Window")){
                 //stop on that window

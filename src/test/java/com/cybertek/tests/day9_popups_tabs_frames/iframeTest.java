@@ -33,7 +33,7 @@ public class iframeTest {
         //clear before sendkeys
         driver.findElement(By.cssSelector("#tinymce")).clear();
         Thread.sleep(1000);
-        driver.findElement(By.cssSelector("#tinymce")).sendKeys("MikeSmith");
+        driver.findElement(By.cssSelector("#tinymce")).sendKeys("Mike  Smith");
 
         //goes back to first frame(main html)
         //goes back to first frame, useful when we have switched multiple frames
