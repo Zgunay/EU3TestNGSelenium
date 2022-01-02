@@ -54,7 +54,7 @@ public class    EU2Homework_6 {
     String expectedmailText= "do-not-reply@practice.cybertekschool.com";
     Assert.assertEquals(actualText,expectedText,"is NOT same Text");
     Thread.sleep(4000);
-    driver.findElement(By.xpath("//*[@id=\"schranka\"]/tr[3]/td[1]")).click();
+    driver.findElement(By.xpath("//*[@class='col-xs-9 mobileFrom']")).click();
     System.out.println("driver.findElement(By.cssSelector(\"#schranka > tr:nth-child(3) > td.col-xs-9.mobileFrom\")).getText() = " + driver.findElement(By.cssSelector("#schranka > tr:nth-child(3) > td.col-xs-9.mobileFrom > span.glyphicon.glyphicon-envelope")).getText());
 
 

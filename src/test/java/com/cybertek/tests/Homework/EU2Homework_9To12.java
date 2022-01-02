@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EU2Homework_9To12 {
   WebDriver driver;
-    List<WebElement> StatusCodes;
+  List<WebElement> StatusCodes;
     @BeforeMethod
     public void start(){
         driver= WebDriverFactory.getDriver("edge");
