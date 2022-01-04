@@ -56,7 +56,7 @@ public class ActionsTest {
 
         List<WebElement> acceptAndClose = driver.findElements(By.xpath("//*[.='Accept and Close']"));
         List<WebElement> acceptCookies = driver.findElements(By.xpath("//*[.='Accept Cookies']"));
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         if(acceptAndClose.size()>0){
             acceptAndClose.get(0).click();
         }else if(acceptCookies.size()>0){
