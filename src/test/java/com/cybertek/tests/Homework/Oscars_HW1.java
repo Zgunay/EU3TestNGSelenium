@@ -4,6 +4,7 @@ import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -35,6 +36,10 @@ public class Oscars_HW1 {
 
 
         driver.findElement(By.linkText("Order")).click();
+        WebElement selection=driver.findElement(By.cssSelector("#ctl00_MainContent_fmwOrder_ddlProduct"));
+        Select newselection= new Select(selection);
+        newselection.getOptions().get(1).click();
+
         driver.findElement(By.cssSelector("#ctl00_MainContent_fmwOrder_txtQuantity")).sendKeys("2");
         driver.findElement(By.xpath("//*[@*='submit']")).click();
 

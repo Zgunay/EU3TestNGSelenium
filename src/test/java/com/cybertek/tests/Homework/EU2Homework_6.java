@@ -49,13 +49,22 @@ public class    EU2Homework_6 {
     String expectedText="Thank you for signing up. Click the button below to return to the home page.";
     Assert.assertTrue(actualText.equals(expectedText),"Text is NOT same");  // step8
 
-    driver.navigate().to("https://www.tempmailaddress.com/");
-    String actualmailText =driver.findElement(By.xpath("//*[@*='odMobil']")).getText();
+    driver.navigate().to("https://www.tempmailaddress.com/");  // step 9
+
+    String actualmailText =driver.findElement(By.xpath("//td[text()='do-not-reply@practice.cybertekschool.com']")).getText(); //  step 10
+    System.out.println("actualmailText = " + actualmailText);
     String expectedmailText= "do-not-reply@practice.cybertekschool.com";
-    Assert.assertEquals(actualText,expectedText,"is NOT same Text");
-    Thread.sleep(4000);
-    driver.findElement(By.xpath("//*[@class='col-xs-9 mobileFrom']")).click();
-    System.out.println("driver.findElement(By.cssSelector(\"#schranka > tr:nth-child(3) > td.col-xs-9.mobileFrom\")).getText() = " + driver.findElement(By.cssSelector("#schranka > tr:nth-child(3) > td.col-xs-9.mobileFrom > span.glyphicon.glyphicon-envelope")).getText());
+    System.out.println("expectedmailText = " + expectedmailText);
+    Assert.assertTrue(actualmailText.contains(expectedmailText));
+   // Assert.assertEquals(actualText,expectedText,"is NOT same Text");
+
+    driver.findElement(By.xpath("//*[@data-href='2']")).click();  // step 11
+
+   String from= driver.findElement(By.cssSelector("#odesilatel")).getText(); // step 12
+   Assert.assertTrue(from.contains("do-not-reply@practice.cybertekschool.com"));
+
+   String subject= driver.findElement(By.cssSelector("#predmet")).getText(); // step 13
+   Assert.assertTrue(subject.contains("Thanks for subscribing to practice.cybertekschool.com!"));
 
 
 }
