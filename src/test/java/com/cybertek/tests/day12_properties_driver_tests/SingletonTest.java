@@ -28,7 +28,7 @@ public class SingletonTest {
     public void test3(){
         WebDriver driver = Driver.get();
         driver.get("https://www.amazon.com");
-        Driver.get().get("https://www.amazon.com");
+        Driver.get().get("https://www.google.com");
     }
 
 }

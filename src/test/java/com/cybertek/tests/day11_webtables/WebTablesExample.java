@@ -24,7 +24,7 @@ public class WebTablesExample {
 
 //    @AfterMethod
 //    public void tearDown() throws InterruptedException {
-//        Thread.sleep(2000);
+//        Thread.sleep(2000);   //table[@id='table1']//th
 //        driver.quit();
 //    }
 
@@ -40,7 +40,9 @@ public class WebTablesExample {
     @Test
     public void getAllHeaders(){
         //how many columns we have ?
-        List<WebElement> headers = driver.findElements(By.xpath("//table[@id='table1']//th"));
+        WebElement head=driver.findElement(By.xpath("(//thead)[1]"));
+        System.out.println("head.getText() = " + head.getText());
+        List<WebElement> headers = driver.findElements(By.xpath("(//thead)/tr/th"));
         System.out.println("headers.size() = " + headers.size());
 
         for (WebElement header : headers) {
