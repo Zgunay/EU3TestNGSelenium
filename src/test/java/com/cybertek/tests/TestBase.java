@@ -19,6 +19,7 @@ public class TestBase {
     protected WebDriver driver;
     protected Actions actions;
     protected WebDriverWait wait;
+    //this class is used for starting and building reports
     protected static ExtentReports report;
     //this class is used to create HTML report file
     protected static ExtentHtmlReporter htmlReporter;

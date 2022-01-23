@@ -21,7 +21,7 @@ public class ConfigurationReader {
             // read the file into java, finds the file using the string path
             FileInputStream input = new FileInputStream(path);
             // properties --> class that store properties in key / value format
-            properties = new Properties();
+              properties = new Properties();
             // the values from the file input is loaded / fed in to the properties object
             properties.load(input);
 
