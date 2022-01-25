@@ -1,6 +1,6 @@
 package com.cybertek.tests.day15_review;
 
-import com.cybertek.pages. ContactInfoPage;
+import com.cybertek.pages.ContactInfoPage;
 import com.cybertek.pages.ContactsPage;
 import com.cybertek.pages.DashboardPage;
 import com.cybertek.pages.LoginPage;
