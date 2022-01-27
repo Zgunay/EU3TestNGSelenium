@@ -132,7 +132,6 @@ public class ExcelUtil {
             e.printStackTrace();
         }
     }
-
     public void setCellData(String value, String columnName, int row) {
         int column = getColumnsNames().indexOf(columnName);
         setCellData(value, row, column);
