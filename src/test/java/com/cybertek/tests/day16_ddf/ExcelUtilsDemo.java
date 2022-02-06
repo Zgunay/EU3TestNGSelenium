@@ -30,6 +30,7 @@ public class ExcelUtilsDemo {
         System.out.println("qa3short.getColumnsNames() = " + qa3short.getColumnsNames());
 
         //get all data in list of maps
+
         List<Map<String, String>> dataList = qa3short.getDataList();
         for (Map<String, String> onerow : dataList) {
             System.out.println(onerow);
